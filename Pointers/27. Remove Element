@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int n=nums.size();
+        vector<int>::iterator address = nums.begin();
+        int ex = 0;
+        bool con = false;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == val and con == false) {
+                address = nums.begin() + ex;
+                con = true;
+
+            }
+            else if (nums[i] != val and con == true) {
+                cout << nums[i] << endl;
+                *address = nums[i];
+                 ex++;
+                address = nums.begin() + ex;
+               
+
+            }
+            else if (nums[i] != val){
+                ex++;
+            }
+        }
+        return(ex); 
+    }
+};
+
+   
